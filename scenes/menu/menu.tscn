@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhfue7lig8ctd"]
+
+[ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_fte8y"]
+[ext_resource type="PackedScene" uid="uid://ctm3uv30bgpwb" path="res://scenes/language_button/language_button.tscn" id="2_3tn6o"]
+[ext_resource type="Texture2D" uid="uid://df1y0otvph6dl" path="res://assets/background.png" id="2_ey4dd"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_fte8y")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0117647, 0.176471, 0.262745, 1)
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.423529)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -560.0
+offset_right = 875.0
+grow_vertical = 0
+texture = ExtResource("2_ey4dd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 167.0
+offset_top = -266.0
+offset_right = 467.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1][center]Guess What?![/center][/wave]"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+text = "MENU_NEW_GAME"
+
+[node name="CreateGameButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+text = "MENU_CREATE_GAME"
+
+[node name="EditGameButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+text = "MENU_EDIT_GAME"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+text = "MENU_QUIT"
+
+[node name="LanguageButton" parent="." instance=ExtResource("2_3tn6o")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 130.0
+offset_bottom = 110.0
+grow_horizontal = 1
+grow_vertical = 1

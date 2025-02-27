@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://1rk37gpdvyv6"]
+
+[ext_resource type="Script" path="res://scenes/game_starter/game_starter.gd" id="1_hipuk"]
+[ext_resource type="PackedScene" uid="uid://byybtqmuaodwd" path="res://scenes/team_selector/team_selector.tscn" id="1_uyshd"]
+[ext_resource type="Resource" uid="uid://coyd5w7hwcn7e" path="res://data/current_game.tres" id="2_752w6"]
+[ext_resource type="Texture2D" uid="uid://b8c3wyck8o754" path="res://assets/icons/exitLeft.png" id="3_kblhn"]
+[ext_resource type="PackedScene" uid="uid://m02tc5j2w4v5" path="res://scenes/game_screen/game_screen.tscn" id="3_l4jgm"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_8hyii"]
+
+[node name="GameStarter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_hipuk")
+game = ExtResource("2_752w6")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0117647, 0.176471, 0.262745, 1)
+metadata/_edit_lock_ = true
+
+[node name="ExitButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+offset_left = 35.0
+offset_top = 35.0
+offset_right = 115.0
+offset_bottom = 115.0
+
+[node name="Icon" type="TextureRect" parent="ExitButton"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_kblhn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TeamSelector" parent="." instance=ExtResource("1_uyshd")]
+layout_mode = 1
+team_size_button_group = SubResource("ButtonGroup_8hyii")
+
+[node name="GameScreen" parent="." instance=ExtResource("3_l4jgm")]
+visible = false
+layout_mode = 1
+
+[node name="FileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+initial_position = 1
+size = Vector2i(456, 301)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.tres")
+use_native_dialog = true
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = ""
+initial_position = 1
+size = Vector2i(456, 164)
+dialog_text = "DIALOG_SURE"
+cancel_button_text = "GAME_CANCEL"

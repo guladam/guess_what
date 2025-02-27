@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckwt4lriftcm5"]
+
+[ext_resource type="Script" path="res://scenes/question_button_popup/question_button_popup.gd" id="1_3m3p0"]
+[ext_resource type="FontFile" uid="uid://bsdsdou0o738y" path="res://assets/fonts/NotoSans-VariableFont.ttf" id="1_r7neq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_revph"]
+bg_color = Color(0.117647, 0.572549, 0.803922, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0588235, 0.34902, 0.494118, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_jo3k0"]
+line_spacing = 0.0
+font = ExtResource("1_r7neq")
+font_size = 21
+shadow_size = 0
+
+[node name="QuestionButtonPopup" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 70)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_right = 110.0
+offset_bottom = 91.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_revph")
+script = ExtResource("1_3m3p0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="QuestionTextLabel" type="Label" parent="MarginContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "game question text goes here"
+label_settings = SubResource("LabelSettings_jo3k0")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

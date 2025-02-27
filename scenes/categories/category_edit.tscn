@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://drq7cvw8i2ts0"]
+
+[ext_resource type="FontFile" uid="uid://bsdsdou0o738y" path="res://assets/fonts/NotoSans-VariableFont.ttf" id="1_eqfs0"]
+
+[node name="CategoryEdit" type="LineEdit"]
+custom_minimum_size = Vector2(180, 40)
+theme_override_fonts/font = ExtResource("1_eqfs0")
+theme_override_font_sizes/font_size = 18
+placeholder_text = "GE_CAT_TITLE"
+alignment = 1

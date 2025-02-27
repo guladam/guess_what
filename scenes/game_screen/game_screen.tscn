@@ -1,0 +1,172 @@
+[gd_scene load_steps=9 format=3 uid="uid://m02tc5j2w4v5"]
+
+[ext_resource type="Script" path="res://scenes/game_screen/game_screen.gd" id="1_2oso4"]
+[ext_resource type="PackedScene" uid="uid://b5utsiwtigblk" path="res://scenes/categories/categories.tscn" id="1_4a774"]
+[ext_resource type="PackedScene" uid="uid://c0lunlmy45hqu" path="res://scenes/game_grid/game_grid.tscn" id="2_t2xwh"]
+[ext_resource type="PackedScene" uid="uid://bk2q521pmo88m" path="res://scenes/team_container/team_container.tscn" id="4_vq37b"]
+[ext_resource type="PackedScene" uid="uid://jgg1k885mws1" path="res://scenes/question_popup/question_popup.tscn" id="5_r66eq"]
+
+[sub_resource type="Animation" id="Animation_rdbay"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("QuestionPopup:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("QuestionPopup:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lj5qh"]
+resource_name = "popup"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("QuestionPopup:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("QuestionPopup:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yeb3u"]
+_data = {
+"RESET": SubResource("Animation_rdbay"),
+"popup": SubResource("Animation_lj5qh")
+}
+
+[node name="GameScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2oso4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="GameNameLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Game name"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Categories" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource("1_4a774")]
+unique_name_in_owner = true
+layout_mode = 2
+mode = 1
+
+[node name="GameGrid" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource("2_t2xwh")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Teams" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TeamContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/CenterContainer/Teams" instance=ExtResource("4_vq37b")]
+layout_mode = 2
+
+[node name="TeamContainer2" parent="MarginContainer/VBoxContainer/ScrollContainer/CenterContainer/Teams" instance=ExtResource("4_vq37b")]
+layout_mode = 2
+
+[node name="TeamContainer3" parent="MarginContainer/VBoxContainer/ScrollContainer/CenterContainer/Teams" instance=ExtResource("4_vq37b")]
+layout_mode = 2
+
+[node name="TeamContainer4" parent="MarginContainer/VBoxContainer/ScrollContainer/CenterContainer/Teams" instance=ExtResource("4_vq37b")]
+layout_mode = 2
+
+[node name="QuestionPopup" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("5_r66eq")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1280.0
+offset_bottom = 525.0
+grow_horizontal = 1
+grow_vertical = 1
+timer = NodePath("../QuestionTimer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yeb3u")
+}
+
+[node name="QuestionTimer" type="Timer" parent="."]

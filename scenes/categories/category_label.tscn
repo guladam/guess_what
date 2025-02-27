@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://k7bjqoy6oubk"]
+
+[ext_resource type="Script" path="res://scenes/categories/category_label.gd" id="1_bgr73"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k25np"]
+bg_color = Color(0.054902, 0.345098, 0.490196, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.00784314, 0.176471, 0.25098, 1)
+
+[node name="CategoryLabel" type="Panel"]
+custom_minimum_size = Vector2(180, 60)
+theme_override_styles/panel = SubResource("StyleBoxFlat_k25np")
+script = ExtResource("1_bgr73")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "hmmmmmmm"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3

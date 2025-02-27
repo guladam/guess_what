@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://by5l331x3iicj"]
+
+[node name="QuestionButton" type="Button"]
+custom_minimum_size = Vector2(180, 60)
+offset_right = 6.0
+offset_bottom = 6.0
+text = "100$"

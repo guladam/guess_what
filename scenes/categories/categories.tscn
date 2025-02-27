@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5utsiwtigblk"]
+
+[ext_resource type="Script" path="res://scenes/categories/categories.gd" id="1_ouqm7"]
+
+[node name="Categories" type="HBoxContainer"]
+theme_override_constants/separation = 15
+script = ExtResource("1_ouqm7")

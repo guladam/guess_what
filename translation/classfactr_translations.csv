@@ -1,0 +1,31 @@
+keys;en;hu
+MENU_NEW_GAME;New Game;Új játék
+MENU_CREATE_GAME;Create Game;Játék készítése
+MENU_EDIT_GAME;Edit Game;Játék szerkesztése
+MENU_QUIT;Quit;Kilépés
+GE_NAME;Game name;Játék neve
+GE_ROWS;Rows;Sorok
+GE_COLS;Columns;Oszlopok
+GE_STARTING;Starting Money;Kezdő Összeg
+GE_INCREMENT;Increments;Növekmény
+GAME_SAVE;Save;Mentés
+GAME_CANCEL;Cancel;Mégsem
+GE_CAT_TITLE;Category %s;%s. kategória
+GE_TIME_LIMIT;Time limit:;Időlimit:
+GE_QUESTION_TEXT;Question;Kérdés
+GE_QUESTION_TEXT_EDIT;Question text;Kérdés szövege
+GE_ANSWER_TEXT;Answer;Válasz
+GE_ANSWER_TEXT_EDIT;Answer text;Válasz szövege
+GE_GAME_SAVED;Game saved.;Játék mentve.
+GE_QUESTION_EDITOR;Edit Question;Kérdésszerkesztő
+GE_QUESTION_TAB;Question;Kérdés
+GE_IMG_TAB;Image;Kép
+GE_ANSWER_TAB;Answer;Válasz
+TS_TEAM_SIZE;How many teams are playing?;Hány csapat játszik?
+TS_NEXT;Next;Tovább
+TS_TEAM_SELECT_SCREEN;Pick a mascot for Team %s!;Válasszon kabalát a(z) %s. csapat
+TS_LOAD_PROMPT;Select the game you want to play;Válassz egy mentett játékot
+TS_LOAD;Load;Betöltés
+BTN_SKIP;Skip;Válasz
+BTN_CONT;Continue;Folytatás
+DIALOG_SURE;Are you sure to quit?;Biztosan kilépsz?

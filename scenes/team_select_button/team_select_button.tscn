@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://drx4cvpo0edi4"]
+
+[ext_resource type="Texture2D" uid="uid://bgkhhau2ouolt" path="res://assets/animals/bear.png" id="1_oivag"]
+[ext_resource type="ButtonGroup" uid="uid://dpxa8adv6n75a" path="res://scenes/team_selector/team_icons_button_group.tres" id="1_otwvf"]
+[ext_resource type="Script" path="res://scenes/team_select_button/team_select_button.gd" id="1_rguhy"]
+
+[node name="TeamSelectButton" type="Button"]
+custom_minimum_size = Vector2(120, 120)
+toggle_mode = true
+button_group = ExtResource("1_otwvf")
+script = ExtResource("1_rguhy")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Icon" type="TextureRect" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_oivag")
+expand_mode = 1
+stretch_mode = 5

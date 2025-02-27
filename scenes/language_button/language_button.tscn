@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctm3uv30bgpwb"]
+
+[ext_resource type="Script" path="res://scenes/language_button/language_button.gd" id="1_ds82m"]
+[ext_resource type="Texture2D" uid="uid://oqt54sxqkfkn" path="res://assets/flags/en.svg" id="1_nd5eu"]
+[ext_resource type="Texture2D" uid="uid://cskb381w0rel4" path="res://assets/flags/hu.svg" id="3_3i7cu"]
+
+[node name="LanguageButton" type="Button"]
+custom_minimum_size = Vector2(80, 60)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_ds82m")
+language_icons = Array[Texture]([ExtResource("1_nd5eu"), ExtResource("3_3i7cu")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 7
+
+[node name="LanguageIcon" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_nd5eu")
+expand_mode = 1
+stretch_mode = 5

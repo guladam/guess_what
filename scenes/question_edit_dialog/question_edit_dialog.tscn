@@ -1,0 +1,133 @@
+[gd_scene load_steps=8 format=3 uid="uid://0ss8fvdbvoh"]
+
+[ext_resource type="Script" path="res://scenes/question_edit_dialog/question_edit_dialog.gd" id="1_scctf"]
+[ext_resource type="Resource" uid="uid://co8wyi3lvccie" path="res://data/testq.tres" id="2_3qglr"]
+[ext_resource type="Texture2D" uid="uid://djl6l37qyqejb" path="res://icon.svg" id="2_6kiol"]
+[ext_resource type="Texture2D" uid="uid://illxa1eigd73" path="res://assets/icons/import.png" id="4_3y0ae"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65bwo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqw46"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.0117647, 0.176471, 0.262745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1uj4"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+bg_color = Color(0.0117647, 0.176471, 0.262745, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="QuestionEditDialog" type="ConfirmationDialog"]
+title = "Question Editor"
+initial_position = 1
+size = Vector2i(700, 600)
+visible = true
+min_size = Vector2i(700, 500)
+ok_button_text = "GAME_SAVE"
+cancel_button_text = "GAME_CANCEL"
+script = ExtResource("1_scctf")
+question = ExtResource("2_3qglr")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/side_margin = 0
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_65bwo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_sqw46")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_i1uj4")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_i1uj4")
+current_tab = 0
+
+[node name="Question" type="VBoxContainer" parent="TabContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Question"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Question/HBoxContainer"]
+layout_mode = 2
+text = "GE_TIME_LIMIT"
+
+[node name="TimeLimitSpinBox" type="SpinBox" parent="TabContainer/Question/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 600.0
+step = 5.0
+value = 30.0
+alignment = 1
+
+[node name="VSeparator" type="HSeparator" parent="TabContainer/Question"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Question"]
+layout_mode = 2
+text = "GE_QUESTION_TEXT"
+
+[node name="QuestionTextEdit" type="TextEdit" parent="TabContainer/Question"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "GE_QUESTION_TEXT_EDIT"
+wrap_mode = 1
+caret_blink = true
+caret_multiple = false
+
+[node name="Image" type="PanelContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Image"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ImagePreview" type="TextureRect" parent="TabContainer/Image/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+mouse_filter = 0
+texture = ExtResource("2_6kiol")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ImageIcon" type="TextureRect" parent="TabContainer/Image/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+mouse_filter = 0
+texture = ExtResource("4_3y0ae")
+stretch_mode = 3
+
+[node name="Answer" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Label" type="Label" parent="TabContainer/Answer"]
+layout_mode = 2
+text = "GE_ANSWER_TEXT"
+
+[node name="AnswerTextEdit" type="TextEdit" parent="TabContainer/Answer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "GE_ANSWER_TEXT_EDIT"
+wrap_mode = 1
+caret_blink = true
+caret_multiple = false

@@ -1,0 +1,307 @@
+[gd_scene load_steps=10 format=3 uid="uid://d25bqnqogu2y0"]
+
+[ext_resource type="Script" path="res://scenes/game_editor/game_editor.gd" id="1_dwdpk"]
+[ext_resource type="Texture2D" uid="uid://bjgeueqrt0xwo" path="res://assets/icons/save.png" id="1_n0k5r"]
+[ext_resource type="Resource" uid="uid://08828u0vnuhi" path="res://data/current_game_settings.tres" id="2_b1ho2"]
+[ext_resource type="Texture2D" uid="uid://b8c3wyck8o754" path="res://assets/icons/exitLeft.png" id="2_d8ya4"]
+[ext_resource type="PackedScene" uid="uid://c0lunlmy45hqu" path="res://scenes/game_grid/game_grid.tscn" id="4_unb58"]
+[ext_resource type="PackedScene" uid="uid://b5utsiwtigblk" path="res://scenes/categories/categories.tscn" id="5_2fb52"]
+[ext_resource type="PackedScene" uid="uid://by5l331x3iicj" path="res://scenes/question_button/question_button.tscn" id="5_26p5l"]
+[ext_resource type="PackedScene" uid="uid://0ss8fvdbvoh" path="res://scenes/question_edit_dialog/question_edit_dialog.tscn" id="7_asiky"]
+[ext_resource type="PackedScene" uid="uid://ckwt4lriftcm5" path="res://scenes/question_button_popup/question_button_popup.tscn" id="8_fy25s"]
+
+[node name="GameEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_dwdpk")
+game_settings = ExtResource("2_b1ho2")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0117647, 0.176471, 0.262745, 1)
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Menu" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="GameName" type="LineEdit" parent="VBoxContainer/Menu/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+placeholder_text = "GE_NAME"
+max_length = 100
+caret_blink = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Menu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/Menu/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Menu/HBoxContainer/HBoxContainer/SaveButton"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_n0k5r")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/Menu/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Menu/HBoxContainer/HBoxContainer/ExitButton"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d8ya4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Rows" type="HBoxContainer" parent="VBoxContainer/Menu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="RowsLabel" type="Label" parent="VBoxContainer/Menu/HBoxContainer/Rows"]
+layout_mode = 2
+text = "GE_ROWS"
+
+[node name="RowsSpinBox" type="SpinBox" parent="VBoxContainer/Menu/HBoxContainer/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 6.0
+value = 5.0
+alignment = 1
+
+[node name="Columns" type="HBoxContainer" parent="VBoxContainer/Menu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ColumnsLabel" type="Label" parent="VBoxContainer/Menu/HBoxContainer/Columns"]
+layout_mode = 2
+text = "GE_COLS"
+
+[node name="ColumnsSpinBox" type="SpinBox" parent="VBoxContainer/Menu/HBoxContainer/Columns"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 6.0
+value = 5.0
+alignment = 1
+
+[node name="Values" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Values"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="StartingMoney" type="HBoxContainer" parent="VBoxContainer/Values/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="StartingMoneyLabel" type="Label" parent="VBoxContainer/Values/HBoxContainer/StartingMoney"]
+layout_mode = 2
+text = "GE_STARTING"
+
+[node name="StartingMoneySpinBox" type="SpinBox" parent="VBoxContainer/Values/HBoxContainer/StartingMoney"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+step = 50.0
+value = 100.0
+alignment = 1
+
+[node name="Currency" type="OptionButton" parent="VBoxContainer/Values/HBoxContainer/StartingMoney"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "$"
+popup/item_1/text = "€"
+popup/item_1/id = 1
+popup/item_2/text = "Ft"
+popup/item_2/id = 2
+
+[node name="Columns2" type="HBoxContainer" parent="VBoxContainer/Values/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ColumnsLabel" type="Label" parent="VBoxContainer/Values/HBoxContainer/Columns2"]
+layout_mode = 2
+text = "GE_INCREMENT"
+
+[node name="IncrementSpinBox" type="SpinBox" parent="VBoxContainer/Values/HBoxContainer/Columns2"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10000.0
+step = 50.0
+value = 100.0
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Categories" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer" instance=ExtResource("5_2fb52")]
+unique_name_in_owner = true
+layout_mode = 2
+game_settings = ExtResource("2_b1ho2")
+
+[node name="GameGrid" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer" instance=ExtResource("4_unb58")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 5
+
+[node name="QuestionButton" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="QuestionButton2" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton3" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton4" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton5" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton6" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton7" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton8" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton9" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton10" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton11" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton12" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton13" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton14" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton15" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton16" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton17" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton18" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton19" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButton20" parent="VBoxContainer/ScrollContainer/CenterContainer/VBoxContainer/GameGrid" instance=ExtResource("5_26p5l")]
+layout_mode = 2
+
+[node name="QuestionButtonPopup" parent="." instance=ExtResource("8_fy25s")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 220.0
+grow_horizontal = 1
+offset = Vector2(-20, -100)
+
+[node name="QuestionEditDialog" parent="." instance=ExtResource("7_asiky")]
+title = "GE_QUESTION_EDITOR"
+visible = false
+wrap_controls = false
+
+[node name="SaveFileDialog" type="FileDialog" parent="."]
+title = "GE_SAVE_FILE"
+initial_position = 1
+size = Vector2i(456, 301)
+access = 2
+filters = PackedStringArray("*.tres")
+use_native_dialog = true
+
+[node name="SavedAcceptDialog" type="AcceptDialog" parent="."]
+title = ""
+initial_position = 1
+size = Vector2i(456, 164)
+dialog_text = "GE_GAME_SAVED"

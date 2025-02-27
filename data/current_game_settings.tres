@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameSettings" load_steps=3 format=3 uid="uid://08828u0vnuhi"]
+
+[ext_resource type="Script" path="res://data/question.gd" id="1_f8w1o"]
+[ext_resource type="Script" path="res://data/game_settings.gd" id="1_ywfcg"]
+
+[resource]
+script = ExtResource("1_ywfcg")
+game_name = "Default Game"
+rows = 5
+columns = 5
+starting_money = 100
+increments = 100
+currency = "$"
+questions = Array[ExtResource("1_f8w1o")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+categories = Array[String](["", "", "", "", ""])
