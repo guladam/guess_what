@@ -7,7 +7,7 @@ extends ConfirmationDialog
 @onready var time_limit_spin_box: SpinBox = %TimeLimitSpinBox
 @onready var question_text_edit: TextEdit = %QuestionTextEdit
 @onready var image_preview: TextureRect = %ImagePreview
-@onready var image_icon: TextureRect = %ImageIcon
+@onready var placeholder_container: VBoxContainer = %PlaceholderContainer
 @onready var answer_text_edit: TextEdit = %AnswerTextEdit
 @onready var delete_image_button: Button = %DeleteImageButton
 @onready var file_dialog: FileDialog = $FileDialog
@@ -42,7 +42,7 @@ func set_question(new_value: Question) -> void:
 		_set_question_image(question.image_path)
 		delete_image_button.visible = true
 	else:
-		image_icon.show()
+		placeholder_container.show()
 		image_preview.hide()
 		delete_image_button.visible = false
 
@@ -55,6 +55,7 @@ func _save_question() -> void:
 
 func _set_image_from_path(file: String) -> void:
 	if Util.is_path_valid_image(file):
+		file = Util.convert_absolute_path_to_userdir(file)
 		_set_question_image(file)
 		question.image_path = file
 
@@ -63,15 +64,15 @@ func _set_question_image(path: String) -> void:
 	var texture := Util.load_image_from_path(path)
 	image_preview.texture = texture
 	image_preview.show()
-	image_icon.hide()
+	placeholder_container.hide()
 	delete_image_button.visible = true
 
 
 func _on_files_dropped(files: PackedStringArray) -> void:
 	if not visible:
 		return
-		
-	_set_image_from_path(files[0])
+	
+	_set_image_from_path(files[0].simplify_path())
 
 
 func _on_delete_image_pressed() -> void:

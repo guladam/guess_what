@@ -2,6 +2,7 @@ keys;en;hu
 MENU_NEW_GAME;New Game;Új játék
 MENU_CREATE_GAME;Create Game;Játék készítése
 MENU_EDIT_GAME;Edit Game;Játék szerkesztése
+MENU_GAME_FOLDER;Open Data Folder;Játékkönyvtár megnyitása
 MENU_QUIT;Quit;Kilépés
 GE_NAME;Game name;Játék neve
 GE_ROWS;Rows;Sorok
@@ -20,6 +21,7 @@ GE_GAME_SAVED;Game saved.;Játék mentve.
 GE_QUESTION_EDITOR;Edit Question;Kérdésszerkesztő
 GE_QUESTION_TAB;Question;Kérdés
 GE_IMG_TAB;Image;Kép
+GE_CLICK_OR_DND;Click or Drag and Drop image;Kattints vagy Húzz\nide egy képet
 GE_ANSWER_TAB;Answer;Válasz
 TS_TEAM_SIZE;How many teams are playing?;Hány csapat játszik?
 TS_NEXT;Next;Tovább

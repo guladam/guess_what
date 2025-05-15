@@ -115,6 +115,7 @@ AcceptDialog/constants/title_height = 25
 AcceptDialog/styles/embedded_border = SubResource("StyleBoxFlat_hbj17")
 AcceptDialog/styles/panel = SubResource("StyleBoxFlat_hv14f")
 Button/colors/font_color = Color(0.984314, 0.929412, 0.337255, 1)
+Button/font_sizes/font_size = 30
 Button/styles/disabled = SubResource("StyleBoxFlat_s2ggy")
 Button/styles/focus = SubResource("StyleBoxEmpty_t8lpx")
 Button/styles/hover = SubResource("StyleBoxFlat_1ojw4")

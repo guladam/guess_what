@@ -26,3 +26,10 @@ func select_option_button_by_text(option: OptionButton, text: String) -> void:
 	
 	if matching > -1:
 		option.select(matching)
+
+
+func convert_absolute_path_to_userdir(path: String) -> String:
+	if path.begins_with(OS.get_user_data_dir()):
+		return path.replace(OS.get_user_data_dir(), "user:/")
+	
+	return path

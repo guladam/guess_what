@@ -46,9 +46,10 @@ theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_65bwo")
 theme_override_styles/panel = SubResource("StyleBoxFlat_sqw46")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_i1uj4")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_i1uj4")
-current_tab = 0
+current_tab = 1
 
 [node name="Question" type="VBoxContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 metadata/_tab_index = 0
@@ -85,7 +86,6 @@ caret_blink = true
 caret_multiple = false
 
 [node name="Image" type="PanelContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -105,13 +105,22 @@ mouse_filter = 0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ImageIcon" type="TextureRect" parent="TabContainer/Image/MarginContainer"]
+[node name="PlaceholderContainer" type="VBoxContainer" parent="TabContainer/Image/MarginContainer"]
 unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="ImageIcon" type="TextureRect" parent="TabContainer/Image/MarginContainer/PlaceholderContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 mouse_filter = 0
 texture = ExtResource("4_3y0ae")
 stretch_mode = 3
+
+[node name="Label" type="Label" parent="TabContainer/Image/MarginContainer/PlaceholderContainer"]
+layout_mode = 2
+text = "GE_CLICK_OR_DND"
+horizontal_alignment = 1
 
 [node name="DeleteImageButton" type="Button" parent="TabContainer/Image/MarginContainer"]
 unique_name_in_owner = true
@@ -158,4 +167,4 @@ access = 1
 filters = PackedStringArray("*.png", "*.jpg")
 use_native_dialog = true
 
-[connection signal="gui_input" from="TabContainer/Image/MarginContainer/ImageIcon" to="." method="_on_image_icon_gui_input"]
+[connection signal="gui_input" from="TabContainer/Image/MarginContainer/PlaceholderContainer/ImageIcon" to="." method="_on_image_icon_gui_input"]
