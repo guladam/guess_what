@@ -154,7 +154,8 @@ caret_multiple = false
 title = "Open a File"
 ok_button_text = "Open"
 file_mode = 0
-access = 2
+access = 1
+filters = PackedStringArray("*.png", "*.jpg")
 use_native_dialog = true
 
 [connection signal="gui_input" from="TabContainer/Image/MarginContainer/ImageIcon" to="." method="_on_image_icon_gui_input"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckwt4lriftcm5"]
+[gd_scene load_steps=6 format=3 uid="uid://ckwt4lriftcm5"]
 
 [ext_resource type="Script" uid="uid://vwkewjnmfrdc" path="res://scenes/question_button_popup/question_button_popup.gd" id="1_3m3p0"]
 [ext_resource type="FontFile" uid="uid://bsdsdou0o738y" path="res://assets/fonts/NotoSans-VariableFont.ttf" id="1_r7neq"]
+[ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/label_font_auto_sizer/label_auto_sizer.gd" id="3_7jdvd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_revph"]
 bg_color = Color(0.117647, 0.572549, 0.803922, 1)
@@ -15,10 +16,10 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="LabelSettings" id="LabelSettings_jo3k0"]
+[sub_resource type="LabelSettings" id="LabelSettings_i8c57"]
 line_spacing = 0.0
 font = ExtResource("1_r7neq")
-font_size = 21
+font_size = 24
 shadow_size = 0
 
 [node name="QuestionButtonPopup" type="PanelContainer"]
@@ -45,10 +46,17 @@ layout_mode = 2
 
 [node name="QuestionTextLabel" type="Label" parent="MarginContainer/CenterContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 text = "game question text goes here"
-label_settings = SubResource("LabelSettings_jo3k0")
+label_settings = SubResource("LabelSettings_i8c57")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("3_7jdvd")
+_max_size = 24
+_min_size = 16
+_current_font_size = 24
+_editor_defaults_set = true
+metadata/_custom_type_script = "uid://bttgnk3bb2a8i"

@@ -17,6 +17,6 @@ title = "Open a File"
 initial_position = 1
 ok_button_text = "Open"
 file_mode = 0
-access = 2
+access = 1
 filters = PackedStringArray("*.tres")
 use_native_dialog = true

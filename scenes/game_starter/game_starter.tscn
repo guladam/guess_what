@@ -69,7 +69,7 @@ initial_position = 1
 size = Vector2i(456, 301)
 ok_button_text = "Open"
 file_mode = 0
-access = 2
+access = 1
 filters = PackedStringArray("*.tres")
 use_native_dialog = true
 

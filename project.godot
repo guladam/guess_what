@@ -12,6 +12,8 @@ config_version=5
 
 config/name="Guess What?!"
 run/main_scene="res://scenes/menu/menu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="GuessWhat"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.png"
 
@@ -32,6 +34,10 @@ window/size/viewport_height=720
 window/size/mode=3
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://assets/hand_point.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/label_font_auto_sizer/plugin.cfg")
 
 [gui]
 
