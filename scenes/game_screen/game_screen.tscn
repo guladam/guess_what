@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://m02tc5j2w4v5"]
 
-[ext_resource type="Script" path="res://scenes/game_screen/game_screen.gd" id="1_2oso4"]
+[ext_resource type="Script" uid="uid://bm4xxl5o0k4kr" path="res://scenes/game_screen/game_screen.gd" id="1_2oso4"]
 [ext_resource type="PackedScene" uid="uid://b5utsiwtigblk" path="res://scenes/categories/categories.tscn" id="1_4a774"]
 [ext_resource type="PackedScene" uid="uid://c0lunlmy45hqu" path="res://scenes/game_grid/game_grid.tscn" id="2_t2xwh"]
 [ext_resource type="PackedScene" uid="uid://bk2q521pmo88m" path="res://scenes/team_container/team_container.tscn" id="4_vq37b"]
@@ -64,8 +64,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yeb3u"]
 _data = {
-"RESET": SubResource("Animation_rdbay"),
-"popup": SubResource("Animation_lj5qh")
+&"RESET": SubResource("Animation_rdbay"),
+&"popup": SubResource("Animation_lj5qh")
 }
 
 [node name="GameScreen" type="Control"]

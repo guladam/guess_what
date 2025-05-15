@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0lunlmy45hqu"]
 
-[ext_resource type="Script" path="res://scenes/game_grid/game_grid.gd" id="1_1syol"]
+[ext_resource type="Script" uid="uid://dsfow67mlqrfk" path="res://scenes/game_grid/game_grid.gd" id="1_1syol"]
 [ext_resource type="Resource" uid="uid://08828u0vnuhi" path="res://data/current_game_settings.tres" id="2_xjgae"]
 
 [node name="GameGrid" type="GridContainer"]

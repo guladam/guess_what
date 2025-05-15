@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bgkhhau2ouolt" path="res://assets/animals/bear.png" id="1_oivag"]
 [ext_resource type="ButtonGroup" uid="uid://dpxa8adv6n75a" path="res://scenes/team_selector/team_icons_button_group.tres" id="1_otwvf"]
-[ext_resource type="Script" path="res://scenes/team_select_button/team_select_button.gd" id="1_rguhy"]
+[ext_resource type="Script" uid="uid://bg2e5rvbwckg3" path="res://scenes/team_select_button/team_select_button.gd" id="1_rguhy"]
 
 [node name="TeamSelectButton" type="Button"]
 custom_minimum_size = Vector2(120, 120)

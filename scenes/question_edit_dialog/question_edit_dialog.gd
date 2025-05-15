@@ -9,11 +9,15 @@ extends ConfirmationDialog
 @onready var image_preview: TextureRect = %ImagePreview
 @onready var image_icon: TextureRect = %ImageIcon
 @onready var answer_text_edit: TextEdit = %AnswerTextEdit
+@onready var delete_image_button: Button = %DeleteImageButton
+@onready var file_dialog: FileDialog = $FileDialog
 
 # NOTE this node requires a question resource set to work properly
 func _ready() -> void:
 	get_tree().root.files_dropped.connect(_on_files_dropped)
+	file_dialog.file_selected.connect(_set_image_from_path)
 	confirmed.connect(_save_question)
+	delete_image_button.pressed.connect(_on_delete_image_pressed)
 	
 	tab_container.set_tab_title(0, "GE_QUESTION_TAB")
 	tab_container.set_tab_title(1, "GE_IMG_TAB")
@@ -36,9 +40,11 @@ func set_question(new_value: Question) -> void:
 	answer_text_edit.text = question.answer
 	if question.has_image():
 		_set_question_image(question.image_path)
+		delete_image_button.visible = true
 	else:
 		image_icon.show()
 		image_preview.hide()
+		delete_image_button.visible = false
 
 
 func _save_question() -> void:
@@ -47,17 +53,33 @@ func _save_question() -> void:
 	question.answer = answer_text_edit.text.strip_edges()
 
 
+func _set_image_from_path(file: String) -> void:
+	if Util.is_path_valid_image(file):
+		_set_question_image(file)
+		question.image_path = file
+
+
 func _set_question_image(path: String) -> void:
 	var texture := Util.load_image_from_path(path)
 	image_preview.texture = texture
 	image_preview.show()
 	image_icon.hide()
+	delete_image_button.visible = true
 
 
 func _on_files_dropped(files: PackedStringArray) -> void:
 	if not visible:
 		return
-	
-	if Util.is_path_valid_image(files[0]):
-		_set_question_image(files[0])
-		question.image_path = files[0]
+		
+	_set_image_from_path(files[0])
+
+
+func _on_delete_image_pressed() -> void:
+	delete_image_button.visible = false
+	question.image_path = ""
+	set_question(question)
+
+
+func _on_image_icon_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_click"):
+		file_dialog.show()

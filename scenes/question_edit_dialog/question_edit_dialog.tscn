@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://0ss8fvdbvoh"]
 
-[ext_resource type="Script" path="res://scenes/question_edit_dialog/question_edit_dialog.gd" id="1_scctf"]
+[ext_resource type="Script" uid="uid://qkf26a8u1ac" path="res://scenes/question_edit_dialog/question_edit_dialog.gd" id="1_scctf"]
 [ext_resource type="Resource" uid="uid://co8wyi3lvccie" path="res://data/testq.tres" id="2_3qglr"]
-[ext_resource type="Texture2D" uid="uid://djl6l37qyqejb" path="res://icon.svg" id="2_6kiol"]
 [ext_resource type="Texture2D" uid="uid://illxa1eigd73" path="res://assets/icons/import.png" id="4_3y0ae"]
+[ext_resource type="Texture2D" uid="uid://c3m2bl6y11q4w" path="res://assets/icons/trashcanOpen.png" id="4_gwnjw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65bwo"]
 
@@ -102,7 +102,6 @@ visible = false
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 mouse_filter = 0
-texture = ExtResource("2_6kiol")
 expand_mode = 1
 stretch_mode = 5
 
@@ -113,6 +112,25 @@ layout_mode = 2
 mouse_filter = 0
 texture = ExtResource("4_3y0ae")
 stretch_mode = 3
+
+[node name="DeleteImageButton" type="Button" parent="TabContainer/Image/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Icon" type="TextureRect" parent="TabContainer/Image/MarginContainer/DeleteImageButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_gwnjw")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Answer" type="VBoxContainer" parent="TabContainer"]
 visible = false
@@ -131,3 +149,12 @@ placeholder_text = "GE_ANSWER_TEXT_EDIT"
 wrap_mode = 1
 caret_blink = true
 caret_multiple = false
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
+[connection signal="gui_input" from="TabContainer/Image/MarginContainer/ImageIcon" to="." method="_on_image_icon_gui_input"]

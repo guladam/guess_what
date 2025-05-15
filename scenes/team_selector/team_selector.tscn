@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://byybtqmuaodwd"]
 
-[ext_resource type="Script" path="res://scenes/team_selector/team_selector.gd" id="1_7dqht"]
+[ext_resource type="Script" uid="uid://q3guqjccsxdk" path="res://scenes/team_selector/team_selector.gd" id="1_7dqht"]
 [ext_resource type="ButtonGroup" uid="uid://ba1hr2s7u6x56" path="res://scenes/team_selector/teams_button_group.tres" id="1_nxfbm"]
 [ext_resource type="Resource" uid="uid://coyd5w7hwcn7e" path="res://data/current_game.tres" id="2_ov58c"]
 [ext_resource type="PackedScene" uid="uid://drx4cvpo0edi4" path="res://scenes/team_select_button/team_select_button.tscn" id="3_ft3oe"]

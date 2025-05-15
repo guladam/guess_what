@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GameSettings" load_steps=3 format=3 uid="uid://08828u0vnuhi"]
 
-[ext_resource type="Script" path="res://data/question.gd" id="1_f8w1o"]
-[ext_resource type="Script" path="res://data/game_settings.gd" id="1_ywfcg"]
+[ext_resource type="Script" uid="uid://cr0dkw23iptta" path="res://data/question.gd" id="1_f8w1o"]
+[ext_resource type="Script" uid="uid://scljouwq6gp2" path="res://data/game_settings.gd" id="1_ywfcg"]
 
 [resource]
 script = ExtResource("1_ywfcg")
