@@ -7,14 +7,15 @@ signal question_mouse_exited
 
 const QUESTION_BUTTON = preload("res://scenes/question_button/question_button.tscn")
 
-@export var game_settings: GameSettings
+@export var game_settings: GameSettings:
+	set(value):
+		game_settings = value
+		game_settings.changed.connect(_on_game_settings_changed)
 
 
 func _ready() -> void:
 	for child: Node in get_children():
 		child.queue_free()
-	
-	game_settings.changed.connect(_on_game_settings_changed)
 
 
 func spawn_questions() -> void:
@@ -83,7 +84,6 @@ func _setup_button_connections(button: Button, i: int, j: int) -> void:
 
 func _on_game_settings_changed() -> void:
 	self.columns = game_settings.columns
-
 
 func _on_question_button_pressed(i: int, j: int) -> void:
 	question_pressed.emit(Vector2i(i, j))
